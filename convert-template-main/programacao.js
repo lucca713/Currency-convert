@@ -1,7 +1,20 @@
 //cotacoes do dia
-const USD = 5.71
-const EUR = 5.98
-const GBP = 7.20
+let USD, EUR, GBP
+
+const url = 'https://economia.awesomeapi.com.br/last/'
+const coins = 'USD-BRL,EUR-BRL,GBP-BRl'
+
+fetch(url + coins)
+ .then(function(response){
+    return response.json()
+})
+.then(function(data){
+    console.log(data)
+    USD = parseFloat(data.USDBRL.high)
+    EUR =  parseFloat(data.EURBRL.high)
+    GBP =  parseFloat(data.GBPBRL.high)
+})
+
 //area das variáveis
 
 const input_valor = document.querySelector("#amount")
@@ -37,10 +50,16 @@ form.onsubmit = (event) =>{
         case "GBP":
              convert(input_valor.value,GBP,"£")
              break
+        default:
+            alert("moeda nao encontrada")
     }
 
     
 }
+
+
+
+
 
 //funcao converter moeda e colocar ela exibindo no footer
 
@@ -50,7 +69,7 @@ function convert(amount, price, symbol){
 
      description.textContent = ` 1${symbol} = ${formatCurrencyBRL(price)} `   
      
-     result.textContent = `${formatCurrencyBRL(total.toFixed(2))}`
+     result.textContent = `${formatCurrencyBRL(total.toFixed(2))}` //substitui o que esta escrito
 
      footer.classList.add("show-result")
    
