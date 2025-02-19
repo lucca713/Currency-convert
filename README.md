@@ -58,7 +58,7 @@ Saída esperada: Aproximadamente US$20,00 (dependendo da cotação atual)
 
 👨‍💻 Autor
 
-Desenvolvido por Lucca713.
+Desenvolvido por Lucca Santos Cerasomma.
 
 
 Feito com ❤️ e JavaScript!
